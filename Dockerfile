@@ -2,6 +2,7 @@ FROM python:2-alpine
 MAINTAINER Joel Stephens https://github.com/jbstep
 
 # Download pre-requisites
+RUN apk update && apk upgrade && apk add --no-cache bash git openssh
 RUN pip install cheetah
 
 # Download latest version
