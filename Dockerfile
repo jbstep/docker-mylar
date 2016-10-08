@@ -7,6 +7,11 @@ RUN pip install cheetah tzlocal
 
 # Download latest version
 RUN mkdir -p /opt/mylar
+RUN chown -R nobody:users /opt/mylar \
+ && chown -R nobody:users /comics \
+ && chown -R nobody:users /downloads \
+ && chown -R nobody:users /config \
+
 WORKDIR /opt/mylar
 RUN git clone https://github.com/evilhero/mylar.git ./app
 
@@ -26,5 +31,6 @@ VOLUME /config
 # Expose the listening port
 EXPOSE 8090
 
+USER nobody
 # Launch it
 CMD [ "python", "app/Mylar.py", "--datadir=/config" ]
