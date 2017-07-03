@@ -1,4 +1,4 @@
-FROM python:2-alpine
+FROM python:2.7-alpine
 MAINTAINER Joel Stephens https://github.com/jbstep
 
 # Download pre-requisites
