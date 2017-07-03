@@ -17,7 +17,7 @@ RUN mkdir /torrents
 RUN mkdir /config
 
 #Chown directories
-RUN chown -R 1000:1000 /opt/mylar
+RUN chown -R 1000:1000 /opt/mylar \
 && chown -R 1000:1000 /comics \
 && chown -R 1000:1000 /downloads \
 && chown -R 1000:1000 /config \
