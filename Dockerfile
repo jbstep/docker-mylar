@@ -7,11 +7,6 @@ RUN pip install cheetah tzlocal
 
 # Download latest version
 RUN mkdir -p /opt/mylar
-RUN chown -R 1000:1000 /opt/mylar
-# && chown -R 1000:1000 /comics \
-# && chown -R 1000:1000 /downloads \
-# && chown -R 1000:1000 /config \
-
 WORKDIR /opt/mylar
 RUN git clone https://github.com/evilhero/mylar.git ./app
 
@@ -20,6 +15,12 @@ RUN mkdir /comics
 RUN mkdir /downloads
 RUN mkdir /torrents
 RUN mkdir /config
+
+#Chown directories
+RUN chown -R 1000:1000 /opt/mylar
+&& chown -R 1000:1000 /comics \
+&& chown -R 1000:1000 /downloads \
+&& chown -R 1000:1000 /config \
 
 # Expose the mylar home
 VOLUME /comics
